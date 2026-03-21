@@ -1,0 +1,13 @@
+{
+  "name": "pipegen-test-bun",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bun run index.ts",
+    "test": "bun test",
+    "build": "bun build ./index.ts --outdir ./dist",
+    "lint": "bunx eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}

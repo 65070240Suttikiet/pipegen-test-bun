@@ -1,0 +1,9 @@
+const server = Bun.serve({
+  port: 3001,
+  fetch(req) {
+    return new Response("Hello from PipeGen Test!");
+  },
+});
+
+console.log(`Server running at http://localhost:${server.port}`);
+export default server;
