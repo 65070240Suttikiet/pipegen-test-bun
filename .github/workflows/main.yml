@@ -1,0 +1,28 @@
+name: Auto-Generated-Pipeline
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          if ! command -v bun > /dev/null 2>&1; then npm install -g bun; fi
+          bun install --frozen-lockfile
+
+      - name: Run Tests
+        run: bun test
+
+      - name: Build Project
+        run: bun run build
