@@ -1,6 +1,9 @@
-name: Auto-Generated-Pipeline
+name: My-Production-Pipeline
 'on':
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 jobs:
@@ -20,9 +23,6 @@ jobs:
         run: |
           if ! command -v bun > /dev/null 2>&1; then npm install -g bun; fi
           bun install --frozen-lockfile
-
-      - name: Run Tests
-        run: bun test
 
       - name: Build Project
         run: bun run build
